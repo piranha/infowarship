@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var w = 450;
   var h = 300;
-  var left = (screen.width/2)-(w/2);
-  var top = (screen.height/2)-(h/2);
+  var left = (window.innerWidth/2)-(w/2);
+  var top = (window.innerHeight/2)-(h/2);
   el.style.position = 'fixed';
   el.style.width = w + 'px';
   el.style.height = h + 'px';
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   el.style.left = left + 'px';
 
   el.src = '$DOMAIN/popup.html';
+  el.id = 'infowarship';
   document.body.appendChild(el);
 });
 `
