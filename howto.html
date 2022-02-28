@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Россия - убийца</title>
+
+    <link rel="stylesheet" type="text/css" href="static/sakura.css">
+  </head>
+  <body>
+    <main>
+    <section>
+    <h1>Допоможіть з інформаційною підтримкою України на вашому сайті!</h1>
+
+    <p>Не всі жителі Росії мають правдиву інформацію про те, що робить їх армія в нашій країні, та про те, яких втрат вона вже зазнала.</p>
+
+    <p>Додайте цей скрипт на ваш сайт, щоб показати попап з інформацією і посиланнями для відвідувачів з російських IP.</p>
+    </section>
+
+    <section>
+      <h2>Через зміну HTML-коду</h2>
+      <p>Додайте у шаблон вашого сайту перед закриваючим тегом <code>&lt/body></code> або <code>&lt/head></code> такий код:</p>
+      <pre><code>&lt;script src="https://infowarship.pages.dev/go">&lt;/script></code></pre>
+
+      <h2>Через GTM</h2>
+      <p>Якщо ви користуєтесь GTM, то можете додати цей попап без зміни коду. Створіть новий тег типу "Користувацький тег HTML" і додайте в нього такий код:</p>
+      <pre><code>&lt;script src="https://infowarship.pages.dev/go">&lt;/script></code></pre>
+
+      <h2>Це все</h2>
+      <p>Після будь-якого з цих варіантів відвідувачі з російських IP-адрес будуть бачити отакий попап:</p>
+
+      <script>
+        function showPopup() {
+          var el = document.createElement('script');
+          el.src = '/go?debug';
+          document.body.appendChild(el);
+        }
+      </script>
+      <p class="center"><a class="button" href="javascript: showPopup()">Demo</a></p>
+
+    </section>
+
+    <p class="center red"><big>Слава Україні!</big></p>
+
+    </main>
+  </body>
+</html>

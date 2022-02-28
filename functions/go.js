@@ -1,5 +1,6 @@
 var RUJS = `
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+function main() {
   var el = document.createElement('iframe');
 
   var w = 600;
@@ -20,7 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
   el.src = '$DOMAIN/popup.html';
   el.id = 'infowarship';
   document.body.appendChild(el);
-});
+}
+
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', main);
+} else {
+  main();
+}
+})();
 `
 
 export async function onRequest({request}) {
