@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Russia is a killer</title>
+
+    <link rel="stylesheet" type="text/css" href="static/sakura.css">
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>If you have a website, you can support Ukraine right now!</h1>
+
+        <p>Not all Russian citizens have the information about what their armed forces are doing in Ukraine, and what casualties they've already experienced.</p>
+
+        <p>Add this script to your website to show a popup for visitors with Russian IP addresses with links to truthful news sources and information about prisoners of war.</p>
+      </section>
+
+      <section>
+        <h2>By changing HTML code</h2>
+        <p>In your site template before enclosing <code>&lt/body></code> or <code>&lt/head></code> tag add this code:</p>
+        <pre><code>&lt;script src="https://infowarship.pages.dev/go">&lt;/script></code></pre>
+
+        <h2>With GTM</h2>
+        <p>If you are using GTM you can add this popup without code change. Create a new tag of type "Custom HTML" and add this code:</p>
+        <pre><code>&lt;script src="https://infowarship.pages.dev/go">&lt;/script></code></pre>
+
+        <h2>That's all</h2>
+        <p>After any of those changes visitors from Russian IPs will see popup like this:</p>
+
+        <script>
+          function showPopup() {
+            var el = document.createElement('script');
+            el.src = '/go?debug';
+            document.body.appendChild(el);
+          }
+        </script>
+        <p class="center"><a class="button" href="javascript: showPopup()">Demo</a></p>
+
+      </section>
+
+      <section>
+        <h2>What's in the popup</h2>
+        <hr>
+
+        <h1 class="red">Russia has attacked Ukraine, and is killing civilians every day</h1>
+
+        <p><big>Here's what Russian websites and TV channels don't talk about:</big></p>
+    <ul>
+      <li><big>Russian army is destroying residential buildings and <a href="https://www.pravda.com.ua/rus/news/2022/02/27/7326619/">shoots women and children</a>.</big></li>
+      <li><big>In the first days of the war, <a href="https://ru.krymr.com/a/rossiya-ukraina-voyna-minoborony-rossii-poteri-ubitiye-rossiyskiye-soldaty/31726793.html">Russia has lost</a> more than 4,000 troops and hundreds of vehicles.</big></li>
+      <li><big>More Russian soldiers surrender every day. If you're looking for someone, try <a href="https://200rf.com">200rf.com</a>.</big></li>
+      <li><big>Russia is cut off the global financial system, ruble is <a href="https://www.bbc.com/russian/news-60531329">plunging</a>.</big></li>
+    </ul>
+
+    <h2>It's not your war! Come out to the city centre and protest, before Putin has ruined the life of your family.</h2>
+
+      </section>
+
+      <p class="center red"><big>Glory to Ukraine!</big></p>
+    </main>
+  </body>
+</html>
