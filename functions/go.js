@@ -1,8 +1,17 @@
 var RUJS = `
-document.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
   var el = document.createElement('iframe');
-  el.height = '300px';
-  el.width = '450px';
+
+  var w = 450;
+  var h = 300;
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  el.style.width = w;
+  el.style.height = h;
+  el.style.position = 'fixed';
+  el.style.top = top;
+  el.style.left = left;
+
   el.src = '$DOMAIN/popup.html';
   document.body.appendChild(el);
 });
