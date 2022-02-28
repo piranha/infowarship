@@ -19,8 +19,13 @@ function main() {
 
   el.style.position = 'fixed';
   el.src = '$DOMAIN/popup.html';
-  el.id = 'infowarship';
+
   document.body.appendChild(el);
+  window.addEventListener('message', function(e) {
+    if (e.data == 'plzremove') {
+      el.remove();
+    }
+  });
 }
 
 if (document.readyState == 'loading') {
