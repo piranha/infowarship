@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var h = 300;
   var left = (screen.width/2)-(w/2);
   var top = (screen.height/2)-(h/2);
-  el.style.width = w;
-  el.style.height = h;
   el.style.position = 'fixed';
-  el.style.top = top;
-  el.style.left = left;
+  el.style.width = w + 'px';
+  el.style.height = h + 'px';
+  el.style.top = top + 'px';
+  el.style.left = left + 'px';
 
   el.src = '$DOMAIN/popup.html';
   document.body.appendChild(el);
