@@ -8,12 +8,16 @@ document.addEventListener('load', function() {
 });
 `
 
-export async function onRequest(ctx) {
-  var country = ctx.request.cf.country;
+export async function onRequest({request}) {
+  var country = request.cf.country;
   if (country == 'RU' || true) {
-    var url = new URL(ctx.request.url);
+    var url = new URL(request.url);
     var res = RUJS.replace('$DOMAIN', url.origin);
-    return new Response(res);
+    return new Response(res, {
+      headers: {'content-type': 'text/javascript;charset=utf-8'}
+    });
   }
-  return new Response('console.log("Hello ' + country + '!");');
+  return new Response('console.log("Hello ' + country + '!");', {
+    headers: {'content-type': 'text/javascript;charset=utf-8'}
+  });
 }
