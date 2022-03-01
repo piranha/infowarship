@@ -1,4 +1,6 @@
 (function() {
+  var script = document.currentScript;
+  var debug = script && new URL(script.src).search.match(/\bdebug\b/);
   var _unique = 0;
   function jsonp(url, callback) {
     var name = "_jsonp_" + _unique++;
@@ -33,7 +35,7 @@
 
   function main() {
     jsonp('https://wcayf.piranha.workers.dev', function(data) {
-    if (data.country == 'RU' || window.infowarshipDebug) {
+    if (data.country == 'RU' || debug) {
       popup();
     }
   });
