@@ -1,0 +1,2 @@
+/static/*
+    Cache-Control: max-age=3600

@@ -1,0 +1,2 @@
+dev:
+	wrangler pages dev .
