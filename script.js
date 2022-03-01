@@ -23,7 +23,7 @@
   function popup() {
     var el = document.createElement('iframe');
     el.style = 'top: 0; left: 0; width: 100vw; height: 100vh; bottom: 0; right: 0; z-index: 20000; position: fixed';
-    el.src = '/popup.html';
+    el.src = 'https://infowarship.com/popup.html';
 
     document.body.appendChild(el);
     window.addEventListener('message', function(e) {
