@@ -33,7 +33,7 @@
 
   function main() {
     jsonp('https://wcayf.piranha.workers.dev', function(data) {
-    if (data.country == 'RU') {
+    if (data.country == 'RU' || window.infowarshipDebug) {
       popup();
     }
   });
