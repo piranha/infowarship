@@ -27,6 +27,9 @@
   <p class="center">
   <a class="button" target="_blank" href="https://infowarship.com/"><big>Узнайте&nbspправду о&nbspвойне&nbspс&nbspУкраиной!</big></a>
   </p>
+  <p class="center">
+    <a class="button" target="_blank" href="https://t.me/infowarship"><big>Или&nbsp;в&nbsp;Телеграм</big></a>
+  </p>
   <br/>
   <br/>
   <br/>
@@ -58,19 +61,21 @@
   }
 
   function popup() {
+    var LOADED = false;
     var el = document.createElement('iframe');
     el.style = 'top: 0; left: 0; width: 100vw; height: 100vh; bottom: 0; right: 0; z-index: 20000; position: fixed';
     el.src = 'https://infowarship.com/popup.html';
 
     document.body.appendChild(el);
     window.addEventListener('message', function(e) {
-      if (e.data == 'plzremove') {
-        el.remove();
+      switch (e.data) {
+      case 'plzremove': el.remove(); break;
+      case 'imdone': LOADED = true; break;
       }
     });
 
     setTimeout(()=>{
-      if (!window.infowarshipPopup) {
+      if (!LOADED) {
         el.srcdoc = POPUP;
       }
     }, 3000);
@@ -81,18 +86,18 @@
       cb(localStorage.country);
     } else {
       jsonp('https://wcayf.piranha.workers.dev', function(data) {
-      localStorage.country = data.country;
-      cb(localStorage.country);
-    });
-  }
-}
-
-function main() {
-  getCountry(function(country) {
-    if (country == 'RU' || debug) {
-      popup();
+        localStorage.country = data.country;
+        cb(localStorage.country);
+      });
     }
-  });
-};
-main();
+  }
+
+  function main() {
+    getCountry(function(country) {
+      if (country == 'RU' || debug) {
+        popup();
+      }
+    });
+  };
+  main();
 })();
