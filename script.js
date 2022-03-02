@@ -33,13 +33,24 @@
     });
   }
 
-  function main() {
-    jsonp('https://wcayf.piranha.workers.dev', function(data) {
-    if (data.country == 'RU' || debug) {
-      popup();
+  function getCountry(cb) {
+    if (localStorage.country) {
+      cb(localStorage.country);
+    } else {
+      jsonp('https://wcayf.piranha.workers.dev', function(data) {
+        localStorage.country = data.country;
+        cb(localStorage.country);
+      });
     }
-  });
-}
+  }
+
+  function main() {
+    getCountry(function(country) {
+      if (country == 'RU' || debug) {
+        popup();
+      }
+    });
+  };
 // document.addEventListener('DOMContentLoaded', main);
 main();
 })();
